@@ -5,15 +5,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page1Component } from './page1/page1.component';
+import { MapComponent } from './map/map.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Page1Component
+    Page1Component,
+    MapComponent,
+    NgTemplateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    LeafletModule,
     HttpClientModule,
   ],
   providers: [],
