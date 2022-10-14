@@ -14,15 +14,10 @@ import { NgTemplateComponent } from './ng-template/ng-template.component';
     AppComponent,
     Page1Component,
     MapComponent,
-    NgTemplateComponent
+    NgTemplateComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LeafletModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, LeafletModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
