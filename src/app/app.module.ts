@@ -8,6 +8,7 @@ import { Page1Component } from './page1/page1.component';
 import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
+import { MapRadarComponent } from './map-radar/map-radar.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NgTemplateComponent } from './ng-template/ng-template.component';
     Page1Component,
     MapComponent,
     NgTemplateComponent,
+    MapRadarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, LeafletModule, HttpClientModule],
   providers: [],
