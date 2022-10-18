@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { marker, divIcon, Map, tileLayer, latLng } from 'leaflet';
 import 'leaflet-realtime';
+import { interval, mergeMap } from 'rxjs';
 import { States } from './types';
 
 const url = 'http://127.0.0.1:5000/flightradar';
@@ -41,7 +42,7 @@ export class MapRadarComponent {
 
   onMapReady(map: Map) {
     this.map = map;
-    this.http.get<States>(url).subscribe(geo1 => {
+    this.getStates().subscribe(geo1 => {
       for (const features of geo1.features) {
         const { latitude, longitude } = features.properties;
 
@@ -50,5 +51,21 @@ export class MapRadarComponent {
         }).addTo(this.map!);
       }
     });
+
+    interval(1000 + 60)
+      .pipe(mergeMap(() => this.getStates()))
+      .subscribe(geo1 => {
+        for (const features of geo1.features) {
+          const { latitude, longitude } = features.properties;
+
+          marker([latitude, longitude], {
+            icon: this.icon,
+          }).addTo(this.map!);
+        }
+      });
+  }
+
+  getStates() {
+    return this.http.get<States>(url);
   }
 }
