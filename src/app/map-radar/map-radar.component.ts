@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { marker, divIcon, Map, tileLayer, latLng } from 'leaflet';
-import 'leaflet-realtime';
 import { interval, mergeMap } from 'rxjs';
 import { States } from './types';
 
